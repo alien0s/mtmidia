@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
 import styles from '../styles/Home.module.css'
-import Menu from '../components/navbar/navbar'
+import Menu from '../components/navbar/navbar.jsx'
 import { useContext } from 'react'
 import { Tema, TemaContexto } from '../components/context/context'
 
@@ -17,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu/>
-      <button onClick={()=>toggleTheme()}>trocar</button>
+      <button id="button_teste" onClick={()=>toggleTheme()}>trocar</button>
       {theme}
       {/* <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /> */}
     </div>

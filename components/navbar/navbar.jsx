@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import AutoSuggest from './search'
+import AutoSuggest from './search.jsx'
 import Image from 'next/image'
 
 export default function Menu(){

@@ -78,6 +78,11 @@ class AutoSuggest extends React.Component {
 
       return (
         <Fragment>
+        <a className="fbk-svg" href="www.facebook.com" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 132 132">
+            <path class="fil0" d="M66 0c37,0 66,30 66,66 0,35 -26,63 -60,66l0 -43 18 0c1,-2 0,-3 1,-5 0,-2 0,1 0,-3l2 -12c0,-1 0,-1 0,-1 -1,-1 -18,0 -21,0 0,-4 0,-8 0,-11 0,-8 1,-12 11,-12 2,0 9,0 11,0 0,-3 0,-11 0,-14 0,-6 2,-5 -10,-6 -3,0 -8,0 -11,0 -11,2 -17,7 -21,17 -2,7 -1,19 -1,26l-18 0c0,1 0,20 0,21 1,0 12,0 16,0l1 0c1,0 1,2 1,3 0,5 0,26 0,39 -29,-7 -51,-33 -51,-65 0,-36 30,-66 66,-66z"/>
+          </svg>
+        </a>
         <form>
           <Autosuggest
               suggestions={suggestions}
@@ -96,21 +101,3 @@ class AutoSuggest extends React.Component {
 }
 
 export default AutoSuggest;
-    // const matches = AutosuggestHighlightMatch(suggestionText, query);
-    // const parts = AutosuggestHighlightParse(suggestionText, matches);
-
-    // return (
-    //   <div className={'cntr-sggst '}>
-    //     <span className="name">
-    //       {parts.map((part, index) => {
-    //           const className = part.highlight ? 'highlight' : null;
-    //           return (
-    //             <span className={className} key={index}>{part.text}</span>
-    //           );
-    //         })}
-    //       <div className="yr-sggt">{ suggestion.year }</div>
-    //     </span>
-    //     <div className="i--cvr--srch" style={{backgroundImage: suggestion.url }}></div>
-    //     {/* <img src="http://image.tmdb.org/t/p/w220_and_h330_face/elZ6JCzSEvFOq4gNjNeZsnRFsvj.jpg"></img> */}
-    //   </div>
-    // );
