@@ -1,0 +1,19 @@
+.pll{
+    padding: 0.3vw 1vw;
+    color: var(--white-color);
+    border-radius: var(--b--r);
+    text-transform: uppercase;
+    font-size: 1vw;
+    margin-bottom: 20px;
+}
+@media (max-width: 500px){
+    .pll{
+        font-size: 1.4vw;
+    }
+}
+.pll::after{
+    content: attr(value);
+}
+.pll[value="política"]{
+    background-image: var(--color-política);
+}
