@@ -25,8 +25,10 @@ export default function Menu(){
                         </li>)}
                     </ul>
                 </div>
-                <div className="form-inline">
-                  <AutoSuggest/>
+                <div id="bx-rght" className={toggler ? "opened":"closed"}>
+                    <div className="form-inline" >
+                        <AutoSuggest/>
+                    </div>
                 </div>
             </div>
         </div>

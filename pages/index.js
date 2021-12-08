@@ -4,6 +4,7 @@ import Script from 'next/script'
 import styles from '../styles/Home.module.css'
 import Menu from '../components/navbar/navbar.jsx'
 import Slide from '../components/slide/slide.jsx'
+import CardLanding from '../components/slide/card'
 import { useContext } from 'react'
 import { Tema, TemaContexto } from '../components/context/context'
 
@@ -11,9 +12,11 @@ const news = [
   {"title": "Trump torches Biden in 'Fox & Friends' interview, says admin ‘knowingly destroying our country'",
   "categoria":"política","img":"https://th.bing.com/th/id/R.59fdc1030d413efb8ac39e857b045610?rik=vke5Ic9R1hhvnA&riu=http%3a%2f%2fimagesmtv-a.akamaihd.net%2furi%2fmgid%3aao%3aimage%3amtv.com%3a97544%3fquality%3d0.8%26format%3djpg%26width%3d1440%26height%3d810%26.jpg&ehk=NwtrqyAzZXmVgTiuLLOjv6U9edxinhUDD7IR%2fkClCTA%3d&risl=&pid=ImgRaw&r=0"},
   {"title": "Biden jokes Fauci is around White House so much that it feels like he's actually the 'president'",
-  "categoria":"política","img":"https://a57.foxnews.com/hp.foxnews.com/images/2021/12/1280/533/5b866950bbdafcc8ad76987f6d4abda8.jpg"},
-  {"title": "Inflation causing hardship for nearly half of US households, survey shows",
-  "categoria":"economia","img":"https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2021/11/931/523/Inflation-Gas-Prices.jpg"}]
+  "categoria":"política","img":"https://a57.foxnews.com/hp.foxnews.com/images/2021/12/1280/533/5b866950bbdafcc8ad76987f6d4abda8.jpg"}
+  // ,
+  // {"title": "Inflation causing hardship for nearly half of US households, survey shows",
+  // "categoria":"economia","img":"https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2021/11/931/523/Inflation-Gas-Prices.jpg"}
+]
 
 export default function Home() {
   const {theme} = useContext(Tema)
@@ -27,13 +30,16 @@ export default function Home() {
       </Head>
       <Menu/>
       <div className="wrppr">
-        <div className="bx">
+        <div className="bx_mn">
           <Slide array={news} />
         </div>
-        <div className="box-teste b2">
-        <div className="box-test">2</div>
-        <div className="box-test">2</div>
+        {news.map((index,i) => 
+        <div className={'bx'+i}>
+          <div className="sbbx_lndng crd_ctnr" key={i}>
+            <CardLanding categoria={index.categoria} title={index.title} img={index.img} />
+          </div>
         </div>
+        )}
       </div>
       <button id="button_teste" onClick={()=>toggleTheme()}>trocar</button>
       {theme}

@@ -13,10 +13,8 @@ export default function Slide(props){
         <Swiper className="mySwiper" speed={600} parallax={true} pagination={{"clickable": true}} navigation={true}>
             {props.array.map((index,i) =>
              <SwiperSlide key={i}>
-                <Link href="#">
+                <Link href="#" className={styles.ctnr_crd_lndng}>
                     <a>
-                        <div className={styles.skltn}>
-                            <div className={styles.skltn_abslt}>
                                 <div className={styles.img_swpr} style={{backgroundImage: `url(${index.img})`}} ></div>
                                 <div className="bg_img_shdw">
                                 <div className={styles.bx_txt_wht}>
@@ -26,8 +24,6 @@ export default function Slide(props){
                                     </div>
                                 </div>
                                 </div>
-                            </div>
-                        </div>
                     </a>
                 </Link>
              </SwiperSlide>
