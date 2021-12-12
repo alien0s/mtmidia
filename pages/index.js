@@ -48,8 +48,8 @@ export default function Home() {
             <Slide arrayOne={news} />
           </div>
           {news.map((index,i) => 
-          <div className={'bx'+i}>
-            <div className="sbbx_lndng crd_ctnr" key={i}>
+          <div className={'bx'+i} key={i}>
+            <div className="sbbx_lndng crd_ctnr">
               <CardLanding categoria={index.categoria} title={index.title} img={index.img} />
             </div>
           </div>

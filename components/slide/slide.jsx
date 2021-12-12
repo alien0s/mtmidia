@@ -34,10 +34,10 @@ function Slide(props){
         </Swiper>
     )
 }
-function SlideSecond(props){
+function SlideSecond(param){
     return(
         <Swiper {...options} className="mySwiper">
-            {props.arrayTwo.map((index,i)=> 
+            {param.arrayTwo.map((index,i)=> 
                 <SwiperSlide key={i}>
                     <Link href="#">
                     <a className={styles.ctnr_crd_lndng}>
