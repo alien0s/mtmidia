@@ -3,24 +3,37 @@ import Image from 'next/image'
 import Script from 'next/script'
 import styles from '../styles/Home.module.css'
 import Menu from '../components/navbar/navbar.jsx'
-import Slide from '../components/slide/slide.jsx'
+import {Slide, SlideSecond} from '../components/slide/slide.jsx'
 import CardLanding from '../components/slide/card'
+import CardSmall from '../components/slide/cardSmall'
+import CardEmAlta from '../components/slide/cardEmAlta'
+import Footer from '../components/footer/footer'
 import { useContext } from 'react'
-import { Tema, TemaContexto } from '../components/context/context'
+import { Tema } from '../components/context/context'
 
 const news = [
   {"title": "Trump torches Biden in 'Fox & Friends' interview, says admin ‘knowingly destroying our country'",
   "categoria":"política","img":"https://th.bing.com/th/id/R.59fdc1030d413efb8ac39e857b045610?rik=vke5Ic9R1hhvnA&riu=http%3a%2f%2fimagesmtv-a.akamaihd.net%2furi%2fmgid%3aao%3aimage%3amtv.com%3a97544%3fquality%3d0.8%26format%3djpg%26width%3d1440%26height%3d810%26.jpg&ehk=NwtrqyAzZXmVgTiuLLOjv6U9edxinhUDD7IR%2fkClCTA%3d&risl=&pid=ImgRaw&r=0"},
   {"title": "Biden jokes Fauci is around White House so much that it feels like he's actually the 'president'",
+  "categoria":"política","img":"https://a57.foxnews.com/hp.foxnews.com/images/2021/12/1280/533/5b866950bbdafcc8ad76987f6d4abda8.jpg"}]
+  
+const news2 = [
+  {"title":"Job openings climb to near-record in October as labor shortage persists",
+  "categoria":"economia","img":"https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2021/06/720/405/Help-Wanted-iStock.jpg?tl=1&ve=1"},
+  {"title":"Lamborghini CEO bullish on brand's record sales",
+  "categoria":"economia","img":"https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2021/12/281/158/lambo-1.jpg?tl=1&ve=1"},
+  {"title": "Fox News' Lawrence Jones on Christmas: 'The best time of year'",
+  "categoria":"cultura","img":"https://a57.foxnews.com/hp.foxnews.com/images/2021/12/320/180/d2462982467e59d4f493c16bbdcafc2c.jpg?tl=1&ve=1"},
+  {"title": "Inflation causing hardship for nearly half of US households, survey shows",
+  "categoria":"economia","img":"https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2021/11/931/523/Inflation-Gas-Prices.jpg"},
+  {"title": "Trump torches Biden in 'Fox & Friends' interview, says admin ‘knowingly destroying our country'",
+  "categoria":"política","img":"https://th.bing.com/th/id/R.59fdc1030d413efb8ac39e857b045610?rik=vke5Ic9R1hhvnA&riu=http%3a%2f%2fimagesmtv-a.akamaihd.net%2furi%2fmgid%3aao%3aimage%3amtv.com%3a97544%3fquality%3d0.8%26format%3djpg%26width%3d1440%26height%3d810%26.jpg&ehk=NwtrqyAzZXmVgTiuLLOjv6U9edxinhUDD7IR%2fkClCTA%3d&risl=&pid=ImgRaw&r=0"},
+  {"title": "Biden jokes Fauci is around White House so much that it feels like he's actually the 'president'",
   "categoria":"política","img":"https://a57.foxnews.com/hp.foxnews.com/images/2021/12/1280/533/5b866950bbdafcc8ad76987f6d4abda8.jpg"}
-  // ,
-  // {"title": "Inflation causing hardship for nearly half of US households, survey shows",
-  // "categoria":"economia","img":"https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2021/11/931/523/Inflation-Gas-Prices.jpg"}
 ]
 
 export default function Home() {
   const {theme} = useContext(Tema)
-  const { toggleTheme } = useContext( Tema )
   return (
     <div id={theme}>
       <Head>
@@ -29,21 +42,40 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu/>
-      <div className="wrppr">
-        <div className="bx_mn">
-          <Slide array={news} />
+      <div id="wrppr">
+        <div className="grd_mn">
+          <div className="bx_mn">
+            <Slide arrayOne={news} />
+          </div>
+          {news.map((index,i) => 
+          <div className={'bx'+i}>
+            <div className="sbbx_lndng crd_ctnr" key={i}>
+              <CardLanding categoria={index.categoria} title={index.title} img={index.img} />
+            </div>
+          </div>
+          )}
         </div>
-        {news.map((index,i) => 
-        <div className={'bx'+i}>
-          <div className="sbbx_lndng crd_ctnr" key={i}>
-            <CardLanding categoria={index.categoria} title={index.title} img={index.img} />
+        <div className="grd_scnd mt2">
+          <div className="bx_rcnt">
+            {news2.map((index,i) => 
+            <CardSmall key={i} categoria={index.categoria} title={index.title} img={index.img} />
+            )}
+            </div>
+          <div className="bx_em_alt">
+            <h2 className="ttl_bxs">Em alta</h2>
+            {
+              news2.map((index,i) =>
+                <CardEmAlta key={i} title={index.title} categoria={index.categoria} index={i+1}/>
+              )
+            }
           </div>
         </div>
-        )}
       </div>
-      <button id="button_teste" onClick={()=>toggleTheme()}>trocar</button>
-      {theme}
+      <div className="bx_sld_scnd">
+          <SlideSecond arrayTwo={news2} />
+      </div>
       {/* <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /> */}
+      <Footer/>
     </div>
   )
 }
