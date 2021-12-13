@@ -1,4 +1,4 @@
-export default {
+const options = {
     spaceBetween:10,
         navigation:true,
         breakpoints: {
@@ -25,3 +25,5 @@ export default {
         mousewheel:true,
         keyboard:true
 }
+
+export default options

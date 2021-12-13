@@ -13,7 +13,7 @@ function Slide(props){
     return(
         <Swiper className="mySwiper" speed={900} parallax={true} pagination={{"clickable": true}} navigation={true} autoplay={{
             "disableOnInteraction": true
-          }} pagination={true}>
+          }}>
             {props.arrayOne.map((index,i) =>
              <SwiperSlide key={i} data-swiper-autoplay="6000">
                 <Link href="#">
