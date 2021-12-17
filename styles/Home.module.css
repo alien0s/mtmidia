@@ -17,8 +17,24 @@
 .skltn{
   height: 100%;
   display: flex;
-  background-color: blue;
   padding-bottom: 95%;
+}
+.skltn_flx{
+  display: flex;
+  overflow: hidden;
+  border-radius: var(--b--r);
+  height: 13vw;
+  margin-bottom: 0.5vw;
+}
+@media(max-width: 800px){
+  .skltn_flx{
+    height: 18vw;
+  }
+}
+@media(max-width: 600px){
+  .skltn_flx{
+    height: 23vw;
+  }
 }
 .skltn_crd{
   padding: 0;
@@ -44,6 +60,9 @@
     background-position: -200% 0;
   }
 }
+.skltn_sld{
+  padding-bottom: 60%;
+}
 .h2_nws_mn, .h2_nws_crd_mn{
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -56,8 +75,19 @@
   font-size: 1.3vw;
   margin-top: 0.5vw;
 }
+.h2_nws_sld{
+  font-size: 1vw;
+}
 @media (min-width: 700px){
   .h2_nws_mn{
   line-height: 3.1vw;
+  }
+}
+@media (max-width: 600px){
+  .h2_nws_mn{
+    font-size: 3vw;
+  }
+  .h2_nws_crd_mn{
+    font-size: 2.6vw;
   }
 }

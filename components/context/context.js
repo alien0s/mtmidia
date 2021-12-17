@@ -23,7 +23,9 @@ export const TemaContexto = ({children}) => {
 
     return (
     <Tema.Provider value={{theme, toggleTheme}}>
-      {children}
+      <div id={theme}>
+        {children}
+      </div>
     </Tema.Provider>
     )
 }

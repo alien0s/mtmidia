@@ -4,7 +4,10 @@ import Link from 'next/link'
 export default function CardEmAlta (props){
     return (
         <section className="sctn_em_alt">
-            <Link href="#">
+            <Link href={{
+              pathname: '/[categoria]/[title]',
+              query: { categoria: props.categoria.normalize('NFD').replace(/[\u0300-\u036f]/g,''), title: props.title.normalize('NFD').replace(/[\u0250-\u036f]/g,'').replace(/ /g,'-').replace(/,/g,'') },
+            }}>
                 <a className="flx">
                     <div className="flx_cntr bx_nmr_trndng">
                         {props.index}

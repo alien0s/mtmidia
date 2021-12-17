@@ -8,10 +8,11 @@ import options from './options'
 import Link from 'next/link'
 import Pill from '../pill/pill'
 import styles from '../../styles/Home.module.css'
+import CardDefault from './cardDefault'
 
 function Slide(props){
     return(
-        <Swiper className="mySwiper" speed={900} parallax={true} pagination={{"clickable": true}} navigation={true} autoplay={{
+        <Swiper className="mySwiper" speed={600} parallax={true} pagination={{"clickable": true}} navigation={true} autoplay={{
             "disableOnInteraction": true
           }}>
             {props.arrayOne.map((index,i) =>
@@ -39,23 +40,7 @@ function SlideSecond(param){
         <Swiper {...options} className="mySwiper">
             {param.arrayTwo.map((index,i)=> 
                 <SwiperSlide key={i}>
-                    <Link href="#">
-                    <a className={styles.ctnr_crd_lndng}>
-                        <div className={styles.skltn}>
-                            <div className={styles.skltn_abslt}>
-                                <div className={styles.img_swpr} style={{backgroundImage: `url(${index.img})`}} ></div>
-                                <div className="bg_img_shdw">
-                                <div className={styles.bx_txt_wht}>
-                                    <div>
-                                        <Pill pill={index.categoria}/>
-                                        <h2 className={styles.h2_nws_mn}>{index.title}</h2>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    </Link>
+                    <CardDefault categoria={index.categoria} title={index.title} img={index.img}/>
                 </SwiperSlide>
             )}
         </Swiper>
