@@ -1,10 +1,14 @@
-#categoria_banner{
-    width: 100%;
-    height: 7vw;
-    display: flex;
-    align-items: center;
-    padding: 0 var(--space-container);
+#ctgr_ttl{
+    width: fit-content;
+    font-size: 60px;
+    margin-bottom: 1vw;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
 }
-.cntr_bnnr_ctgr h1{
-    color: var(--white-color);
+@media (max-width: 600px) {
+    #ctgr_ttl{
+        font-size: 11vw;
+    }
 }

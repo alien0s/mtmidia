@@ -1,11 +1,13 @@
 import Header from '../components/head/head'
 import Menu from '../components/navbar/navbar.jsx'
 import {Slide, SlideSecond} from '../components/slide/slide.jsx'
-import CardTwoLanding from '../components/slide/cardTwoLanding'
+import { SlideTwoLanding } from '../components/slide/slide.jsx'
 import CardDefault from '../components/slide/cardDefault'
-import CardSmall from '../components/slide/cardSmall'
+import EmAlta from '../components/em_alta/EmAlta'
 import CardEmAlta from '../components/slide/cardEmAlta'
 import Footer from '../components/footer/footer'
+import { url } from '../lib/vars'
+
 
 const news = [
   {"title": "Trump torches Biden in 'Fox & Friends' interview, says admin ‘knowingly destroying our country'",
@@ -28,58 +30,80 @@ const news2 = [
   "categoria":"política","img":"https://a57.foxnews.com/hp.foxnews.com/images/2021/12/1280/533/5b866950bbdafcc8ad76987f6d4abda8.jpg"}
 ]
 
-export default function Home() {
+export default function Home({firstProps,secondProps,thirdProps,trendingProps}) {
   return (
-    <div>
+    <>
       <Header title="Bem vindo(a) ao Mt mídia | Portal de notícias"/>
       <Menu/>
       <div className="cntr pdng_tp">
         <div className="grd_mn">
           <div className="bx_mn">
-            <Slide arrayOne={news} />
+            <Slide arrayOne={thirdProps} />
           </div>
           
-          {news.map((index,i) => 
-          <div className={'bx'+i} key={i}>
+          <div className="bx_tw_lndng">
             <div className="sbbx_lndng crd_ctnr">
-              <CardTwoLanding categoria={index.categoria} title={index.title} img={index.img} />
+              <SlideTwoLanding array={secondProps}/>
             </div>
           </div>
-          )}
         </div>
         <div className="grd_scnd mt2">
           <div className="bx_rcnt">
-            {news2.map((index,i) => 
-            <CardDefault key={i} categoria={index.categoria} title={index.title} img={index.img} />
-            )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-            </div>
-          <div className="bx_smll_clmn">
-            <h2 className="ttl_bxs">Em alta</h2>
+            {thirdProps.map((index,i) => 
+              <CardDefault key={i} id={index.id} categoria={index.categoria} titulo={index.titulo} img={index.img} chamada={index.chamada}/>
+            )}                 
+          </div>
+          <aside className="bx_smll_clmn">
+            <EmAlta/>
             {
-              news2.map((index,i) =>
-                <CardEmAlta key={i} title={index.title} categoria={index.categoria} index={i+1}/>
+              trendingProps.map((index,i) =>
+                <CardEmAlta key={i} id={index.id} titulo={index.titulo} categoria={index.categoria} data_post={index.data_post} index={i+1}/>
               )
             }
-          </div>
+          </aside>
         </div>
       </div>
       <div className="bx_sld_scnd">
-          <SlideSecond arrayTwo={news2} />
+          <SlideSecond arrayTwo={thirdProps} />
       </div>
       <div className="cntr">
         <div className="grd_scnd">
             <div className="bx_rcnt">
-              {news2.map((index,i) => 
-              <CardDefault key={i} categoria={index.categoria} title={index.title} img={index.img} />
+              {thirdProps.map((index,i) => 
+                <CardDefault key={i} id={index.id} categoria={index.categoria} titulo={index.titulo} img={index.img} chamada={index.chamada}/>
               )}
             </div>
-            <div className="bx_smll_clmn">
+            {/* <div className="bx_smll_clmn">
               <img width="90%" src="https://th.bing.com/th/id/OIP.zZdatcwezD67RsUvQYFvPAHaHa?pid=ImgDet&rs=1" />
-            </div>
+            </div> */}
         </div>
       </div>
-      {/* <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /> */}
       <Footer/>
-    </div>
+    </>
   )
+}
+
+export async function getServerSideProps(){
+  const [firstRes, secondRes, thirdRes,trendingRes] = await Promise.all([
+    fetch(`${url}itenshome?page=1&items_per_page=2`),
+    fetch(`${url}itenshome?page=2&items_per_page=2`),
+    fetch(`${url}itenshome?page=1&items_per_page=6`),
+    fetch(`${url}trending`)
+  ]);
+
+  const [first,second,third,trending] = await Promise.all([
+    firstRes.json(),
+    secondRes.json(),
+    thirdRes.json(),
+    trendingRes.json()
+  ]);
+
+  return{
+    props: {
+      firstProps: first.artigos,
+      secondProps: second.artigos,
+      thirdProps: third.artigos,
+      trendingProps: trending
+    }
+  };
 }

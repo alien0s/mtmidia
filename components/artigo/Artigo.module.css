@@ -1,0 +1,41 @@
+.bx_wrppr_pst{
+    grid-column: 1 / 5;
+    position: relative;
+}
+@media (max-width: 800px){
+  .bx_wrppr_pst{
+    grid-column: 1 / 7;
+  }
+}
+/* .bx_tgs{
+  display: inline;
+  margin-left: 10px;
+} */
+.bx_tgs>h5{
+  margin-bottom: 10px;
+}
+.bx_tgs span{
+    padding: 4px 9px;
+    font-size: 14px;
+    display: inline;
+    background-color: #44556e;
+    color: #fff;
+    margin-right: 7px;
+    border-radius: 10px;
+  }
+#autor{
+  margin-left: 4px;
+  margin-right: 5px;
+  font-weight: 500;
+}
+.bx_tgs span::before{
+    content: "#";
+}
+.sctn_artcl{
+  margin-bottom: 3vw;
+}
+@media (max-width: 580px) {
+  .sctn_artcl{
+    margin-bottom: 7vw;
+  }
+}

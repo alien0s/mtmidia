@@ -1,15 +1,17 @@
 import { useRouter } from "next/router"
 import Link from "next/link"
-export default function LinkMenu(props){
+import { editorias } from "../editorias"
+import { upperCaseFirst } from "upper-case-first";
+
+export default function LinkMenu(){
     const router = useRouter()
     const {categoria} = router.query
-    const li = ["editorias","saúde","cultura","política","economia","entrevistas","quem somos"]
     return(
         <ul className="ul_nav">
-            {li.map((index,i)=>
-                <li key={i} id={index}>
+            {editorias.map((index,i)=>
+                <li key={i} id={index.normalize('NFD').replace(/[\u0300-\u036f]/g,'')}>
                     <Link href={`/${index.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ /g,'-')}` }>
-                        <a className={`${categoria === index.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ /g,'-') ? 'actv':'ff'}`}>
+                        <a className={`${categoria === index.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ /g,'-') ? 'actv':'ff'}`} title={upperCaseFirst(index)}>
                             {index}
                             <span></span>
                         </a>

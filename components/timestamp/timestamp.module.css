@@ -1,0 +1,11 @@
+.data_ago{
+    color: rgb(110, 110, 110);
+}
+.data{
+    color: #e6dbdb;
+}
+@media (max-width: 590px) {
+    #pstd{
+        display: none;
+    }   
+}

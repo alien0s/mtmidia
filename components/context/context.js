@@ -1,8 +1,11 @@
 import {createContext, useState, useEffect} from 'react'
+import { useRouter } from 'next/router'
 
 export const Tema = createContext({})
 
 export const TemaContexto = ({children}) => {
+
+    const router = useRouter()
     const [theme,setTheme] = useState("light")
 
     function toggleTheme() {
@@ -14,7 +17,6 @@ export const TemaContexto = ({children}) => {
           setTheme("light");
         }
       };
-    
 
     useEffect(() => {
         const localTheme = window.localStorage.getItem("theme");
