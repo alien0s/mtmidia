@@ -8,12 +8,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@serverless-stack/resources": "^0.4.5",
     "moment": "^2.29.1",
     "next": "12",
     "react": "^17.0.2",
-    "react-autosuggest": "^10.1.0",
-    "react-bootstrap-typeahead": "^6.0.0-alpha.6",
     "react-dom": "^17.0.2",
     "swiper": "6.7.0",
     "upper-case-first": "^2.0.2",
